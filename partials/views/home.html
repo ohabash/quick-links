@@ -1,0 +1,113 @@
+<div class="main-container fd" id="page">
+	<div class="columns">
+		<div class="column">
+			<!-- top -->
+			<div class="top-area">
+				<br>
+				<h1>Quick Links</h1>
+				<form class="fd" ng-if='show'>
+					<input type="url" ng-model="go_url">
+					<a target="_blank" class="button blue-bg" href="{{go_url}}">Go!</a>
+					<!-- <input type="submit" class="button blue-bg" value="Go!" name=""> -->
+				</form>
+			</div>
+
+			<!-- columns -->
+			<div class="columns body-area">
+				<div class="column stores">
+					<input type="text" ng-model="search_stores" placeholder="search..." name="">
+					<div class="stores ss">
+						<button class="store" ng-repeat="store in stores | filter:search_stores" ng-click="update_store(store.url)">{{store.name}}</button>
+					</div>
+				</div>
+				<div class="column places fd" ng-if='show'>
+					<input type="text" ng-model="search_paths" placeholder="search..." name="">
+					<div class="path-column ss">
+						<div class="places columns is-multiline">
+							<div class="column is-3 fd" ng-repeat="path in paths | filter:search_paths">
+								<button class="path {{path.class}}" ng-click="update_path(path.path)">{{path.name}}</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- aside -->
+		<div class="column is-2 aside">
+			<h2>BigCommerce URLs</h2>
+			<ul class="others">
+				<li ng-repeat="other in others | filter:search_paths">
+					<a target="_blank" href="{{other.url}}">{{other.name}}</a>
+				</li>
+			</ul>
+			
+			<br>
+			<div class="fd" ng-if='show'>
+
+				<h2>Go to order</h2>
+				<div class="field has-addons quick-order">
+				  <div class="control">
+				    <input ng-model="order_id" class="input" type="text" placeholder="order#">
+				  </div>
+				  <div class="control">
+				    <a target="_blank" class="button is-info" href="{{one}}/manage/orders/{{order_id}}">
+				      GO
+				    </a>
+				  </div>
+				</div>
+
+				<h2>Search Product</h2>
+				<div class="field has-addons quick-order">
+				  <div class="control">
+				    <input ng-model="p_search" class="input" type="text" placeholder="keyword or sku">
+				  </div>
+				  <div class="control">
+				    <a target="_blank" class="button is-info" href="{{one}}/manage/products?limit=50&page=1&keywords={{p_search}}">
+				      GO
+				    </a>
+				  </div>
+				</div>
+
+				<h2>Search Customers</h2>
+				<div class="field has-addons quick-order">
+				  <div class="control">
+				    <input ng-model="c_search" class="input" type="text" placeholder="keyword / name / email">
+				  </div>
+				  <div class="control">
+				    <a target="_blank" class="button is-info" href="{{one}}/manage/customers?keywords={{c_search}}">
+				      GO
+				    </a>
+				  </div>
+				</div>
+
+			</div>
+
+
+
+
+
+		</div>
+	</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

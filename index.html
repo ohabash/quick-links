@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appName">
+<head>
+	<base href="/"/>
+	<!-- <base href="/index.html"> -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Omar Habash</title>
+
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,100,300,700,600' rel='stylesheet' type='text/css'>
+	<link href="assets/dist/css/style.css" rel="stylesheet">
+	<!-- <script src="http://localhost:9000/livereload.js"></script> -->
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body ng-controller="main" class="{{mobile}}">
+
+	
+<div class="notice-control container" ng-controller="notice">
+	<!-- <div ng-include="'partials/header.html'"></div> -->
+	<div id="notices"></div>
+	<ng-view id="view" autoscroll="true"></ng-view>
+	<!-- <div ng-include="'partials/footer.html'"></div> -->
+</div>
+
+
+
+
+	
+
+
+
+  
+
+
+    <!-- firebase -->
+	<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+	<script>
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyC8-pRA3JLFRbKJl1z1yt_Buff5Kb5M_zg",
+	    authDomain: "tokuz-38ce7.firebaseapp.com",
+	    databaseURL: "https://tokuz-38ce7.firebaseio.com",
+	    projectId: "tokuz-38ce7",
+	    storageBucket: "tokuz-38ce7.appspot.com",
+	    messagingSenderId: "538697225199"
+	  };
+	  firebase.initializeApp(config);
+	</script>
+	<script src="dist/bundle.js"></script>
+    <script src="assets/js/modernizr.custom.js"></script>
+
+
+  </body>
+</html>

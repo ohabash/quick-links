@@ -1,0 +1,69 @@
+// basically repeat above
+$dark: #333;
+$darker: #333;
+$light: #D6D6D6;
+$green: #00A87B;
+$yellow: #FFBB3B;
+$red: #FF4633;
+$white: #FFFFFF;
+$black: #000000;
+$blue: #158CFB;
+$purple: #460f54;
+$orange: #ed6c24;
+
+
+$colors:
+	"dark" $dark,
+	"darker" $darker,
+	"light" $light,
+	"green" $green,
+	"yellow" $yellow,
+	"red" $red,
+	"white" $white,
+	"black" $black,
+	"blue" $blue,
+	"purple" $purple,
+	"orange" $orange
+;
+
+
+@each $color in $colors{
+	// .btn-color
+	.btn-#{nth($color, 1)}{
+	    background: nth($color, 2);
+	    color: #fff;
+	}
+	// .color / color
+	.#{nth($color, 1)}, #{nth($color, 1)}{
+	    color: nth($color, 2) !important;
+	    a{
+	        color: nth($color, 2);
+	    }
+	}
+	// .color-bg
+	.#{nth($color, 1)}-bg {
+		background: nth($color, 2) !important;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@mixin grad($deg, $c1, $c2) {
+	background-image: -webkit-linear-gradient($deg, $c1, $c2) !important;
+	background-image: linear-gradient($deg, $c1, $c2) !important;
+}
+
+
+
+
+

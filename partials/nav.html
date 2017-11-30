@@ -1,0 +1,18 @@
+<a class="navbar-item home" href="/">home</a>
+<a class="navbar-item about" href="/about">about</a>
+<a class="navbar-item faq" href="/faq">faq</a>
+<a class="navbar-item auth" ng-if="!u" href="/login">login</a>
+<a class="navbar-item logout" ng-click="logout();" ng-if="u">Logout</a>
+<a class="navbar-item account" ng-if="u" href="/account">account</a>
+<!-- <a class="navbar-item 404" href="/fdadfds">404 test</a> -->
+<!-- <a class="navbar-item" data_smooth href="#home_2">BOOK NOW</a> -->
+
+  <!-- 
+  <ul class="inline navbar-item">
+    <li><a data_smooth href="#whoweare">WHO WE ARE</a></li>
+    <li><a data_smooth href="#services">SERVICES</a></li>
+    <li><a data_smooth href="#steps">HOW IT WORKS</a></li>
+    <li><a data_smooth href="#home_2">STYLES</a></li>
+    <li><a data_smooth href="/faq">FAQ</a></li>
+    <li><a data_smooth href="#home_2">BOOK NOW</a></li>
+  </ul>  -->

@@ -4,7 +4,7 @@
 			<!-- top -->
 			<div class="top-area">
 				<br>
-				<h1>Quick Links <i ng-click="refresh()" class="fa fa-refresh" aria-hidden="true"></i></h1>
+				<h1>Quick Links <i ng-if="show" ng-click="refresh()" class="fa fd fa-refresh" aria-hidden="true"></i></h1>
 				<form class="fd" ng-if='show'>
 					<input type="url" ng-model="go_url">
 					<a target="_blank" class="button blue-bg" href="{{go_url}}">Go!</a>

@@ -25,6 +25,11 @@ app.controller('home', function ($scope, $rootScope, $location, $firebaseObject,
 		$scope.two = x;
 		$scope.go_url = $scope.one+$scope.two;
 	};
+	$scope.refresh = function(x) {
+		$scope.one = "";
+		$scope.two = "";
+		$scope.show = false;
+	};
 	// $scope.quick_order = function(x) {
 	// 	$scope.two = x;
 	// 	id = $scope.id;

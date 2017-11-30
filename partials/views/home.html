@@ -4,7 +4,7 @@
 			<!-- top -->
 			<div class="top-area">
 				<br>
-				<h1>Quick Links</h1>
+				<h1>Quick Links <i ng-click="refresh()" class="fa fa-refresh" aria-hidden="true"></i></h1>
 				<form class="fd" ng-if='show'>
 					<input type="url" ng-model="go_url">
 					<a target="_blank" class="button blue-bg" href="{{go_url}}">Go!</a>
@@ -81,8 +81,8 @@
 				  </div>
 				</div>
 
-			</div>
 
+			</div>
 
 
 
@@ -94,12 +94,35 @@
 
 
 
-
-
-
-
-
-
+		
+<!-- table size charts -->
+<div class="columns hide">
+	<div class="column is-2">
+		<table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth small">
+			<thead>
+				<th>code</th>
+				<th>status</th>
+			</thead>
+			<tbody>
+				<tr><td>0</td><td>Incomplete</td></tr>
+		        <tr><td>1</td><td>Pending</td></tr>
+		        <tr><td>2</td><td>Shipped</td></tr>
+		        <tr><td>3</td><td>Partially_Shipped</td></tr>
+		        <tr><td>4</td><td>Refunded</td></tr>
+		        <tr><td>5</td><td>Cancelled</td></tr>
+		        <tr><td>6</td><td>Declined</td></tr>
+		        <tr><td>7</td><td>Awaiting_Payment</td></tr>
+		        <tr><td>8</td><td>Awaiting_Pickup</td></tr>
+		        <tr><td>9</td><td>Awaiting_Shipment</td></tr>
+		        <tr><td>10</td><td>Completed</td></tr>
+		        <tr><td>11</td><td>Awaiting_Fulfillment</td></tr>
+		        <tr><td>12</td><td>Manual_Verification_Required</td></tr>
+		        <tr><td>13</td><td>Disputed</td></tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+</div>
 
 
 

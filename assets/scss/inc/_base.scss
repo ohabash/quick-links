@@ -54,6 +54,18 @@ ul.social{
 h1{
   font-size: 2em;
   font-weight: 100;
+  i{
+    position: relative;
+    top: 0.3em;
+    color: $light;
+    padding-left: 0.5em;
+    &:hover{
+      color: darken($light, 5%)
+    }
+    &:active{
+      color: $blue;
+    }
+  }
 }
 
 h2{

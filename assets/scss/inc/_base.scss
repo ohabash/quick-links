@@ -107,7 +107,7 @@ a.bolt{
   padding: 1em;
   color: $light;
   &:hover{
-      color: darken($light, 5%)
+      color: $blue;
     }
     &:active{
       color: $blue;

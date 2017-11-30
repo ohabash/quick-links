@@ -10392,6 +10392,17 @@ button {
   button:hover {
     border: 1px solid #158CFB; }
 
+a.bolt {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1em;
+  color: #D6D6D6; }
+  a.bolt:hover {
+    color: #c9c9c9; }
+  a.bolt:active {
+    color: #158CFB; }
+
 header .navbar-menu a {
   text-transform: uppercase;
   -webkit-transition: all 0.2s ease-in-out;

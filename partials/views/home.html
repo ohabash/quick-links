@@ -17,7 +17,7 @@
 				<div class="column stores">
 					<input type="text" ng-model="search_stores" placeholder="search..." name="">
 					<div class="stores ss">
-						<button class="store" ng-repeat="store in stores | filter:search_stores" ng-click="update_store(store.url)">{{store.name}}</button>
+						<button class="store pr" ng-repeat="store in stores | filter:search_stores" ng-click="update_store(store.url)">{{store.name}} <a target="_blank" href="{{store.url}}" class="bolt"><i class="fa fa-bolt" aria-hidden="true"></i></a></button>
 					</div>
 				</div>
 				<div class="column places fd" ng-if='show'>

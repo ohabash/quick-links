@@ -100,6 +100,20 @@ button{
   }
 }
 
+a.bolt{
+  position: absolute;
+  top: 0;
+  right:0;
+  padding: 1em;
+  color: $light;
+  &:hover{
+      color: darken($light, 5%)
+    }
+    &:active{
+      color: $blue;
+    }
+}
+
 
 
 //  /$$                                 /$$

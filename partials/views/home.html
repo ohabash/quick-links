@@ -1,6 +1,6 @@
 <div class="main-container fd" id="page">
 	<div class="columns">
-		<div class="column">
+		<div class="column is-10">
 			<!-- top -->
 			<div class="top-area">
 				<br>
@@ -25,7 +25,7 @@
 					<div class="path-column ss">
 						<div class="places columns is-multiline">
 							<div class="column is-3 fd" ng-repeat="path in paths | filter:search_paths">
-								<button class="path {{path.class}}" ng-click="update_path(path.path)">{{path.name}}</button>
+								<button class="path {{path.class}}" ng-click="update_path(path.path)">{{path.name}} <a ng-click="update_path(path.path)" target="_blank" href="{{go_url}}" class="bolt"><i class="fa fa-bolt" aria-hidden="true"></i></a></button>
 							</div>
 						</div>
 					</div>
@@ -35,53 +35,81 @@
 
 		<!-- aside -->
 		<div class="column is-2 aside">
-			<h2>BigCommerce URLs</h2>
-			<ul class="others">
-				<li ng-repeat="other in others | filter:search_paths">
-					<a target="_blank" href="{{other.url}}">{{other.name}}</a>
-				</li>
-			</ul>
-			
-			<br>
-			<div class="fd" ng-if='show'>
+			<div class="p1em">
+				<h2>BigCommerce URLs</h2>
+				<ul class="others">
+					<li ng-repeat="other in others | filter:search_paths">
+						<a target="_blank" href="{{other.url}}">{{other.name}}</a>
+					</li>
+				</ul>
+				
+				<br>
+				<div class="fd" ng-if='show'>
 
-				<h2>Go to order</h2>
-				<div class="field has-addons quick-order">
-				  <div class="control">
-				    <input ng-model="order_id" class="input" type="text" placeholder="order#">
-				  </div>
-				  <div class="control">
-				    <a target="_blank" class="button is-info" href="{{one}}/manage/orders/{{order_id}}">
-				      GO
-				    </a>
-				  </div>
+					<h2>Go to order</h2>
+					<div class="field has-addons quick-order">
+					  <div class="control">
+					    <input ng-model="order_id" class="input" type="text" placeholder="order#">
+					  </div>
+					  <div class="control">
+					    <a target="_blank" class="button is-info" href="{{one}}/manage/orders/{{order_id}}">
+					      GO
+					    </a>
+					  </div>
+					</div>
+
+					<h2>Search Product</h2>
+					<div class="field has-addons quick-order">
+					  <div class="control">
+					    <input ng-model="p_search" class="input" type="text" placeholder="keyword or sku">
+					  </div>
+					  <div class="control">
+					    <a target="_blank" class="button is-info" href="{{one}}/manage/products?limit=50&page=1&keywords={{p_search}}">
+					      GO
+					    </a>
+					  </div>
+					</div>
+
+					<h2>Search Customers</h2>
+					<div class="field has-addons quick-order">
+					  <div class="control">
+					    <input ng-model="c_search" class="input" type="text" placeholder="keyword / name / email">
+					  </div>
+					  <div class="control">
+					    <a target="_blank" class="button is-info" href="{{one}}/manage/customers?keywords={{c_search}}">
+					      GO
+					    </a>
+					  </div>
+					</div>
+					
 				</div>
-
-				<h2>Search Product</h2>
-				<div class="field has-addons quick-order">
-				  <div class="control">
-				    <input ng-model="p_search" class="input" type="text" placeholder="keyword or sku">
-				  </div>
-				  <div class="control">
-				    <a target="_blank" class="button is-info" href="{{one}}/manage/products?limit=50&page=1&keywords={{p_search}}">
-				      GO
-				    </a>
-				  </div>
-				</div>
-
-				<h2>Search Customers</h2>
-				<div class="field has-addons quick-order">
-				  <div class="control">
-				    <input ng-model="c_search" class="input" type="text" placeholder="keyword / name / email">
-				  </div>
-				  <div class="control">
-				    <a target="_blank" class="button is-info" href="{{one}}/manage/customers?keywords={{c_search}}">
-				      GO
-				    </a>
-				  </div>
-				</div>
+			</div>
+				
+			<div class="notices p1em">
+				<h2>
+					global notices
+					<a ng-click="modal('new_notice_modal')">
+						<i class="dark add fa fa-plus-circle" aria-hidden="true"></i>
+					</a>
+				</h2>
+				
+				<ul class="notice-list">
+					<li ng-repeat="n in notices" ng-click="$parent.item=n;modal('new_notice_modal')">
+						<i ng-if="n.active=='true'" class="fa aa fa-circle green" aria-hidden="true"></i>
+						<i ng-if="n.active=='false'" class="fa aa fa-circle yellow" aria-hidden="true"></i>
+						<a>{{n.name}}</a>
+					</li>
+				</ul>
+			</div>
 
 
+			<!-- #new_notice_modal -->
+			<div class="modal is-active" ng-if="new_notice_modal">
+			  <div class="modal-background"></div>
+			  <div class="modal-content">
+			    <div ng-include="'partials/notice_form.html'"></div>
+			  </div>
+			  <button class="modal-close is-large" ng-click="modal('new_notice_modal',true)"></button>
 			</div>
 
 

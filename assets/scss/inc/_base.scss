@@ -3,6 +3,12 @@ html, body{
   font-weight: 100;
   font-size: 14px;
 }
+.border{
+  border: 5px solid $red;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
 #view{
 	@extend .clearfix;
 	background: #fff;
@@ -71,12 +77,26 @@ h1{
 h2{
   font-weight: 100;
   text-transform: capitalize;
+  position: relative;
+  a{
+    @include centerer;
+    left: inherit;
+    right: 0;
+    &:hover{
+      color: $yellow;
+    }
+  }
 }
 
 
-input{
+input, textarea{
   @extend .opens;
   font-weight: 100;
+  border: 0;
+  text-transform: capitalize;
+}
+
+.button{
   border: 0;
   text-transform: capitalize;
 }
@@ -87,6 +107,7 @@ button{
   border: 1px solid $light;
   padding: 0.5em;
   font-size: 1em;
+  position: relative;
   @extend .opens;
   text-transform: capitalize;
   font-weight: 100;
@@ -98,6 +119,10 @@ button{
   &:hover{
     border: 1px solid $blue;
   }
+}
+ .is-info{
+  background: $blue !important;
+  border: 0; 
 }
 
 a.bolt{
@@ -113,6 +138,69 @@ a.bolt{
       color: $blue;
     }
 }
+
+.border {
+    border: 13px solid #333;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    position: absolute;
+    z-index: 9;
+    top: 0;
+    display: none;
+}
+
+
+// modal
+.modal{
+  .modal-background{
+    @include ani(0s, fadeIn, 0.3s);
+  }
+
+  .modal-head{
+    padding: 1em;
+    color: $dark;
+    background: #efefef;
+    text-transform: capitalize;
+    position: relative;
+    .tags{
+      @include centerer;
+      left: inherit;
+      right: 0;
+      margin-top: 5px;
+      span.tag{
+        color: $white;
+        background: $dark;
+      }
+    }
+  }
+  .modal-content{
+    @include ani(0s, fadeInUp, 0.5s);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -574,6 +662,51 @@ dl{
 
 
 
+//========== notices ==========//
+.notices{
+  // background: $light;
+  // color: #fff;
+  a{
+    color: $blue;
+  }
+  i.add{
+    color: $light;
+    position: relative;
+    top: 4px;
+    &:hover{
+      color: $blue;
+    }
+  }
+  i.aa{
+    position: relative;
+    top: 4px;
+    padding-right: 1em;
+  }
+}
+
+
+
+
+// form
+form#notice {
+  background: #fff;
+  padding: 1em;
+  a.button, button{
+    border: 0 !important;
+    font-weight: 600;
+  }
+  .tags{
+    float: left;
+    margin: 0 0.5em;
+    margin-left: 0;
+  }
+}
+//========== //notices ==========//
+
+
+
+
+
 
 
 
@@ -648,6 +781,7 @@ dl{
     position: relative;
     margin-top: 1em;
     padding-bottom: 2em;
+    overflow-x: hidden;
     input{}
   }
 
@@ -674,7 +808,7 @@ dl{
       height: 52px;
     }
     .path-column{
-      padding-right: 2em;
+      // padding-right: 2em;
     }
   }
 }
@@ -682,6 +816,11 @@ dl{
 .aside{
   background: lighten($light, 10%);
   // color: #fff;
+  position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    padding: 0;
   h2{
     // border-bottom: 1px solid #ccc;
     margin-bottom: 0.4em;
@@ -719,7 +858,9 @@ dl{
 }
 
 
-
+.control.ll{
+  float: right;
+}
 
 
 .featured {

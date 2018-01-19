@@ -1,0 +1,86 @@
+<div class="modal-head">
+  <h1>{{item.name || 'New Notice'}}</h1>
+  <!-- live -->
+  <div class="tags has-addons" ng-show="item.active=='true'">
+    <span class="tag">ACTIVE</span>
+    <a class="tag green-bg white" href="#colors"></a>
+  </div>
+  <!-- not live -->
+  <div class="tags has-addons" ng-show="item.active=='false'">
+    <span class="tag">DRAFT</span>
+    <a class="tag yellow-bg white" href="#colors"></a>
+  </div>
+</div>
+
+<form id="notice">
+  
+
+
+<!-- name -->
+<div class="field">
+  <label class="label">Name <span class="muted tal" ng-if="item.slug">({{item.slug}})</span></label>
+  <div class="control">
+    <input ng-model="item.name" class="input" type="text" placeholder="Notice Name..." ng-change="item.slug=slug(item.name)">
+  </div>
+</div>
+
+
+
+
+<!-- content -->
+<div class="field">
+  <label class="label">Content</label>
+  <div class="control">
+    <textarea ng-model="item.content" class="textarea" placeholder="Notice Content..."></textarea>
+  </div>
+</div>
+
+
+<!-- stores -->
+<!-- <div class="field" ng-if="item.stores">
+  <label class="label">Current Stores</label>
+  <div class="tags has-addons" ng-repeat="store in notice.stores">
+    <span class="tag">{{store}}</span>
+    <a class="tag red-bg white" href="#colors"><i class="fa fa-minus-circle" aria-hidden="true"></i></a>
+  </div>
+</div>
+<br>
+<br ng-if="item.stores"> -->
+
+<!-- add store -->
+<label class="label">Stores</label>
+<div class="columns is-multiline">
+  <div class="column is-4" ng-repeat="s in stores">
+    <label class="checkbox"  >
+      <input type="checkbox" ng-model="new_store" ng-click="checked(item, s.name, new_store)" value="{{s}}" ng-checked="item.stores[s.name]">
+      {{s.name}}
+    </label>
+  </div>
+
+</div>
+
+
+
+
+
+</form>
+
+<div class="field is-grouped lighter-bg p1em">
+  <p class="control">
+    <a class="button is-primary" ng-click="item.active='true';new_notice(item);item=''">
+      Deploy
+    </a>
+  </p>
+  <p class="control">
+    <a class="button yellow-bg white" ng-click="item.active='false';new_notice(item);item=''">
+      Draft
+    </a>
+  </p>
+  <div class="pull-lef">
+    <p class="control ll" ng-if="item.active">
+      <a class="button red-bg white" ng-dblclick="notices.$remove(item); modal('new_notice_modal',true);item=''">
+        delete
+      </a>
+    </p>
+  </div>
+</div>

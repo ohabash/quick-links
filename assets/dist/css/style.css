@@ -131,6 +131,23 @@
 .orange-bg {
   background: #ed6c24 !important; }
 
+.btn-lighter {
+  background: #f0f0f0;
+  color: #fff; }
+
+.lighter, lighter {
+  color: #f0f0f0 !important; }
+  .lighter a, lighter a {
+    color: #f0f0f0; }
+
+.lighter-bg {
+  background: #f0f0f0 !important; }
+
+.suede {
+  background: #000000 !important;
+  background: -webkit-linear-gradient(to right, #434343, #000000) !important;
+  background: linear-gradient(to right, #434343, #000000) !important; }
+
 ul.inline {
   list-style: none;
   padding: 0; }
@@ -10020,7 +10037,7 @@ label.panel-block:hover {
 .ChronicleDisplay-Roman, .font2 {
   font-family: 'ChronicleDisplay-Roman',"Big Caslon", "Book Antiqua", "Palatino Linotype",TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif; }
 
-.opens, html, body, input, button, #auth .auth-container .log-in form input {
+.opens, html, body, input, textarea, button, #auth .auth-container .log-in form input {
   font-family: 'Open Sans', Arial, "Helvetica Neue", Helvetica, sans-serif; }
 
 .disabled {
@@ -10109,6 +10126,9 @@ a, li, img, div, span, input, textarea, button, :focus {
     -o-transition: all 0.5s ease-in-out;
     -ms-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;*/ }
+
+.muted {
+  opacity: 0.4; }
 
 ul.inline {
   list-style: none;
@@ -10311,6 +10331,12 @@ html, body {
   font-weight: 100;
   font-size: 14px; }
 
+.border {
+  border: 5px solid #FF4633;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden; }
+
 #view {
   background: #fff; }
 
@@ -10366,10 +10392,24 @@ h1 {
 
 h2 {
   font-weight: 100;
+  text-transform: capitalize;
+  position: relative; }
+  h2 a {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    left: inherit;
+    right: 0; }
+    h2 a:hover {
+      color: #FFBB3B; }
+
+input, textarea {
+  font-weight: 100;
+  border: 0;
   text-transform: capitalize; }
 
-input {
-  font-weight: 100;
+.button {
   border: 0;
   text-transform: capitalize; }
 
@@ -10379,6 +10419,7 @@ button {
   border: 1px solid #D6D6D6;
   padding: 0.5em;
   font-size: 1em;
+  position: relative;
   text-transform: capitalize;
   font-weight: 100;
   margin-bottom: 0.6em;
@@ -10392,6 +10433,10 @@ button {
   button:hover {
     border: 1px solid #158CFB; }
 
+.is-info {
+  background: #158CFB !important;
+  border: 0; }
+
 a.bolt {
   position: absolute;
   top: 0;
@@ -10402,6 +10447,56 @@ a.bolt {
     color: #158CFB; }
   a.bolt:active {
     color: #158CFB; }
+
+.border {
+  border: 13px solid #333;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: absolute;
+  z-index: 9;
+  top: 0;
+  display: none; }
+
+.modal .modal-background {
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+  animation-delay: 0s;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s; }
+.modal .modal-head {
+  padding: 1em;
+  color: #333;
+  background: #efefef;
+  text-transform: capitalize;
+  position: relative; }
+  .modal .modal-head .tags {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    left: inherit;
+    right: 0;
+    margin-top: 5px; }
+    .modal .modal-head .tags span.tag {
+      color: #FFFFFF;
+      background: #333; }
+.modal .modal-content {
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+  animation-delay: 0s;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s; }
 
 header .navbar-menu a {
   text-transform: uppercase;
@@ -10676,6 +10771,30 @@ a.btn.fb {
     opacity: 0;
     -webkit-transform: scale(0.9) rotateX(-60deg);
     transform: scale(0.9) rotateX(-60deg); } }
+.notices a {
+  color: #158CFB; }
+.notices i.add {
+  color: #D6D6D6;
+  position: relative;
+  top: 4px; }
+  .notices i.add:hover {
+    color: #158CFB; }
+.notices i.aa {
+  position: relative;
+  top: 4px;
+  padding-right: 1em; }
+
+form#notice {
+  background: #fff;
+  padding: 1em; }
+  form#notice a.button, form#notice button {
+    border: 0 !important;
+    font-weight: 600; }
+  form#notice .tags {
+    float: left;
+    margin: 0 0.5em;
+    margin-left: 0; }
+
 ::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
   color: rgba(0, 0, 0, 0.4);
@@ -10751,11 +10870,14 @@ a.btn.fb {
       margin-bottom: 0;
       font-size: 0.85em;
       height: 52px; }
-    .body-area.columns .column.places .path-column {
-      padding-right: 2em; }
 
 .aside {
-  background: #f0f0f0; }
+  background: #f0f0f0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  padding: 0; }
   .aside h2 {
     margin-bottom: 0.4em;
     font-weight: 500 !important; }
@@ -10783,6 +10905,9 @@ a.btn.fb {
   .aside .has-addons :-moz-placeholder {
     /* Firefox 18- */
     font-size: 1em; }
+
+.control.ll {
+  float: right; }
 
 .featured {
   color: #158CFB;

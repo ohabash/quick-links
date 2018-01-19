@@ -3838,6 +3838,29 @@ app.controller('main', function ($scope, Auth,  $timeout, $route, $rootScope, $l
 	});
 
 
+	$scope.checked = function (item,val,bool) {
+    	// console.log(bool)
+        if (bool) {
+        	// console.log(bool,'+')
+            return item.stores[val]=true;
+        } else {
+        	// console.log(bool,'-')
+            return item.stores[val]=false;
+        }
+    };
+
+
+
+	// modal
+	// $scope['new_notice_modal'] = true;
+	$scope.modal = function(m,close) {
+		if(close){
+			$scope[m] = false;
+			return false;
+		}
+		$scope[m] = true;
+	};
+	
 	
 
 	// auth status
@@ -3865,6 +3888,15 @@ app.controller('main', function ($scope, Auth,  $timeout, $route, $rootScope, $l
     // logOut
     $scope.log = function(x) {
       console.log(x);
+    };
+
+    // logOut
+    $scope.slug = function(x) {
+		return x
+			.toLowerCase()
+			.replace(/ /g,'-')
+			.replace(/[^\w-]+/g,'')
+		;
     };
 
 	//======== various functions below ========//
@@ -4000,6 +4032,8 @@ app.controller('home', function ($scope, $rootScope, $location, $firebaseObject,
 		$scope.one = "";
 		$scope.two = "";
 		$scope.show = false;
+		$scope.search_stores = "";
+		$scope.search_paths = "";
 	};
 	// $scope.quick_order = function(x) {
 	// 	$scope.two = x;
@@ -4284,8 +4318,47 @@ app.controller('home', function ($scope, $rootScope, $location, $firebaseObject,
 
 
 
+    // notices
+    // get notices
+	var ref = firebase.database().ref().child('notices');
+	$scope.notices_obj = $firebaseObject(ref);
+	$rootScope.notices = $firebaseArray(ref);
+
+	$scope.new_notice = function(notice) {
+		console.log(notice);
+		// $rootScope.notices.$add(notice);
+		$scope.notices_obj[notice.slug] = notice;
+		$scope.notices_obj.$save();
+	};
+
+
+
+
+
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /***/ }),
 /* 14 */

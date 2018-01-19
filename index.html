@@ -21,13 +21,13 @@
 </head>
 <body ng-controller="main" class="{{mobile}}">
 
-	
 <div class="notice-control container" ng-controller="notice">
 	<!-- <div ng-include="'partials/header.html'"></div> -->
 	<div id="notices"></div>
 	<ng-view id="view" autoscroll="true"></ng-view>
 	<!-- <div ng-include="'partials/footer.html'"></div> -->
 </div>
+<div class="border"></div>
 
 
 
@@ -40,16 +40,16 @@
 
 
     <!-- firebase -->
-	<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
 	<script>
 	  // Initialize Firebase
 	  var config = {
-	    apiKey: "AIzaSyC8-pRA3JLFRbKJl1z1yt_Buff5Kb5M_zg",
-	    authDomain: "tokuz-38ce7.firebaseapp.com",
-	    databaseURL: "https://tokuz-38ce7.firebaseio.com",
-	    projectId: "tokuz-38ce7",
-	    storageBucket: "tokuz-38ce7.appspot.com",
-	    messagingSenderId: "538697225199"
+	    apiKey: "AIzaSyC0BjDRHcJKgD4kjr4vXX9DnKs-hon3cXo",
+	    authDomain: "quicklinks-bcb92.firebaseapp.com",
+	    databaseURL: "https://quicklinks-bcb92.firebaseio.com",
+	    projectId: "quicklinks-bcb92",
+	    storageBucket: "quicklinks-bcb92.appspot.com",
+	    messagingSenderId: "888997348006"
 	  };
 	  firebase.initializeApp(config);
 	</script>

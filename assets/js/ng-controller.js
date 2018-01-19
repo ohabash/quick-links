@@ -27,6 +27,29 @@ app.controller('main', function ($scope, Auth,  $timeout, $route, $rootScope, $l
 	});
 
 
+	$scope.checked = function (item,val,bool) {
+    	// console.log(bool)
+        if (bool) {
+        	// console.log(bool,'+')
+            return item.stores[val]=true;
+        } else {
+        	// console.log(bool,'-')
+            return item.stores[val]=false;
+        }
+    };
+
+
+
+	// modal
+	// $scope['new_notice_modal'] = true;
+	$scope.modal = function(m,close) {
+		if(close){
+			$scope[m] = false;
+			return false;
+		}
+		$scope[m] = true;
+	};
+	
 	
 
 	// auth status
@@ -54,6 +77,15 @@ app.controller('main', function ($scope, Auth,  $timeout, $route, $rootScope, $l
     // logOut
     $scope.log = function(x) {
       console.log(x);
+    };
+
+    // logOut
+    $scope.slug = function(x) {
+		return x
+			.toLowerCase()
+			.replace(/ /g,'-')
+			.replace(/[^\w-]+/g,'')
+		;
     };
 
 	//======== various functions below ========//

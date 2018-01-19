@@ -29,6 +29,8 @@ app.controller('home', function ($scope, $rootScope, $location, $firebaseObject,
 		$scope.one = "";
 		$scope.two = "";
 		$scope.show = false;
+		$scope.search_stores = "";
+		$scope.search_paths = "";
 	};
 	// $scope.quick_order = function(x) {
 	// 	$scope.two = x;
@@ -313,5 +315,43 @@ app.controller('home', function ($scope, $rootScope, $location, $firebaseObject,
 
 
 
+    // notices
+    // get notices
+	var ref = firebase.database().ref().child('notices');
+	$scope.notices_obj = $firebaseObject(ref);
+	$rootScope.notices = $firebaseArray(ref);
+
+	$scope.new_notice = function(notice) {
+		console.log(notice);
+		// $rootScope.notices.$add(notice);
+		$scope.notices_obj[notice.slug] = notice;
+		$scope.notices_obj.$save();
+	};
+
+
+
+
+
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

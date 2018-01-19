@@ -66,6 +66,10 @@ a, li, img, div, span, input, textarea, button, :focus{
   transition: all 0.5s ease-in-out;*/
 }
 
+.muted{
+  opacity: 0.4;
+}
+
 ul.inline{
   list-style: none;
   padding: 0;

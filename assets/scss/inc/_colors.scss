@@ -2,12 +2,14 @@
 $dark: #333;
 $darker: #333;
 $light: #D6D6D6;
+$lighter: lighten($light, 10%);
 $green: #00A87B;
 $yellow: #FFBB3B;
 $red: #FF4633;
 $white: #FFFFFF;
 $black: #000000;
 $blue: #158CFB;
+// $blue: $green;
 $purple: #460f54;
 $orange: #ed6c24;
 
@@ -23,7 +25,8 @@ $colors:
 	"black" $black,
 	"blue" $blue,
 	"purple" $purple,
-	"orange" $orange
+	"orange" $orange,
+	"lighter" $lighter
 ;
 
 
@@ -50,7 +53,11 @@ $colors:
 
 
 
-
+.suede{
+	background: #000000 !important;
+	background: -webkit-linear-gradient(to right, #434343, #000000) !important;
+	background: linear-gradient(to right, #434343, #000000) !important;
+}
 
 
 
